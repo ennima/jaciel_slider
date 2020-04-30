@@ -1,0 +1,74 @@
+doctype html
+// Mala práctica incluir los estilos en el HTML como embed, pero tiene sus casos de uso.
+style.
+  img {
+  width: 100%;
+  height: auto;
+  }
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+head
+  meta(charset='UTF-8' name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  title Banjercito | Bienes inmuebles
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css')
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/fonts.css')
+  link(rel='shortcut icon' href='images/ico/favicon.png')
+
+header
+  .menu_bar
+    a.bt-menu(href='#')
+      span.icon-menu
+      | Menu
+  nav
+    ul
+      li
+        a(href='#')
+          span.icon-location2
+          | Inicio
+      li
+        a(href='#')
+          span.icon-location2
+          | Aguascalientes
+      li
+        a(href='#')
+          span.icon-location2
+          | Baja California
+      li
+        a(href='#')
+          span.icon-location2
+          | Baja California Sur
+      li
+        a(href='#')
+          span.icon-menu
+          | Chiapas
+// imagen principal de casa
+.swiper-container.main-slider.loading
+  .swiper-wrapper
+    // -----------Copiar Desde aqui--------------------------
+    .swiper-slide
+      figure.slide-bgimg(style='background-image:url(images/casa_1.jpg)')
+        img.entity-img(src='images/casa_1.jpg')
+      .content
+        p.title
+        span.caption
+    // ----------------hasta aqui para una casa---------------------
+    // -- Casas agregadas el 24 de Enero de 2020 (total 18 casas)
+  // If we need navigation buttons
+  .swiper-button-prev
+  .swiper-button-next
+// Miniaturas de la derecha
+.swiper-container.nav-slider.loading
+  .swiper-wrapper(role='navigation')
+    // --------------------------------------------
+    .swiper-slide
+      figure.slide-bgimg(style='background-image:url(images/casa_1.jpg)')
+        img.entity-img(src='images/casa_1.jpg')
+      .content
+        p.slide-bgimg Calvillo, Aguascalientes.
+    // --------------------------------------------
+    // Casas agregadas 24 enero 2020 (18 casas)
+// partial
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js')
+script(src='js/script.js')
