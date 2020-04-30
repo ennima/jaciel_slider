@@ -1,3 +1,7 @@
+/**
+ * Se encarga de poner a andar al slider
+ */
+
 // Params
 let mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',

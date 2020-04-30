@@ -2,17 +2,13 @@
 <html lang="es">
   <!-- Mala práctica incluir los estilos en el HTML como embed, pero tiene sus casos de uso.-->
   <style>
-    img {
-    width: 100%;
-    height: auto;
-    }
     @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
     
   </style>
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Banjercito | Bienes inmuebles</title>
     <link rel="shortcut icon" href="images/ico/favicon.png">
+    <title>Banjercito | Bienes inmuebles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -28,42 +24,42 @@
         <nav>
           <ul>
             <li><a href="#"><span class="icon-location2"></span>Inicio</a></li>
-            <li v-for="entidad in entidades"><a href="#"><span class="icon-location2"></span>Aguascalientes</a></li>
+            <li v-for="entidad in entidades"><a href="#" @click="loadEntidad(3)"><span class="icon-location2"></span>{{entidad.name}}</a></li>
           </ul>
         </nav>
       </header>
       <!-- Final de Menú-->
-      <!-- imagen principal de casa-->
-      <div class="swiper-container main-slider loading">
-        <div class="swiper-wrapper">
-          <!-- -----------Copiar Desde aqui---------------------------->
-          <div class="swiper-slide">
-            <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"><img class="entity-img" src="images/casa_1.jpg"></figure>
-            <div class="content">
+      <section>
+        <div class="left"> 
+          <div class="swiper-container main-slider loading">
+            <div class="swiper-wrapper"></div>
+            <!-- -----------Copiar Desde aqui---------------------------->
+            <div class="swiper-slide">
+              <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"></figure><img class="entity-img" src="images/casa_1.jpg">
+              <div class="content"></div>
               <p class="title"></p><span class="caption"></span>
             </div>
-          </div>
-          <!-- ----------------hasta aqui para una casa----------------------->
-          <!-- -- Casas agregadas el 24 de Enero de 2020 (total 18 casas)-->
-          <!-- If we need navigation buttons-->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
-      <!-- Miniaturas de la derecha-->
-      <div class="swiper-container nav-slider loading"></div>
-      <div class="swiper-wrapper" role="navigation">
-        <!-- ---------------------------------------------->
-        <div class="swiper-slide">
-          <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"><img class="entity-img" src="images/casa_1.jpg"></figure>
-          <div class="content">
-            <p class="slide-bgimg">Calvillo, Aguascalientes.</p>
+            <!-- ----------------hasta aqui para una casa----------------------->
+            <!-- -- Casas agregadas el 24 de Enero de 2020 (total 18 casas)-->
+            <!-- If we need navigation buttons-->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
         </div>
-        <!-- ---------------------------------------------->
-        <!-- Casas agregadas 24 enero 2020 (18 casas)-->
-        <!-- partial-->
-      </div>
+        <div class="right"> 
+          <!-- Miniaturas de la derecha-->
+          <div class="swiper-container nav-slider loading"></div>
+          <div class="swiper-wrapper" role="navigation">
+            <!-- ---------------------------------------------->
+            <div class="swiper-slide"></div>
+            <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"><img class="entity-img" src="images/casa_1.jpg"></figure>
+            <div class="content">
+              <p class="slide-bgimg">Calvillo, Aguascalientes.</p>
+            </div>
+            <footer></footer>
+          </div>
+        </div>
+      </section>
     </div>
     <!-- Comentar antes de enviar a producción-->
     <script src="https://vuejs.org/js/vue.js" defer></script>

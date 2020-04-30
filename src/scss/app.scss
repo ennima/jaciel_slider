@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+/*
+  Método principal
+*/
+body, #app {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  /*Previene problemas con desbordamiento de contenido*/
+  min-height: 100vh;
+  width: 100vw;
+}
+
+header {
+  border: solid aqua 1px;
+  display: flex;
+  flex-direction: row;
+  height: 72px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 24px;
+}
+
+section {
+  border: solid blue 1px;
+  /* calcula el tamaño de la sección
+      para evisar que el header se encime
+      y que el footer deje de verse.
+    */
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+  .left {
+    border: solid purple 1px;
+    display: flex;  
+    min-width: 60%;
+    min-height: 100%;
+    
+  }
+  .right {
+    border: solid purple 1px;
+    display: flex;  
+    min-width: 40%;
+    min-height: 100%;
+    
+  }
+}
+
+footer {
+  // border: solid red 1px;
+  height: 50px;
+  padding: 12px;
+}
