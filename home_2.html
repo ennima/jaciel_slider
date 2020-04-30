@@ -11,6 +11,7 @@
     <title>Banjercito | Bienes inmuebles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/app.css">
@@ -24,47 +25,32 @@
         <nav>
           <ul>
             <li><a href="#"><span class="icon-location2"></span>Inicio</a></li>
-            <li v-for="entidad in entidades"><a href="#" @click="loadEntidad(3)"><span class="icon-location2"></span>{{entidad.name}}</a></li>
+            <li v-for="entidad in entidades"><a href="#" @click="loadEntidad(entidad)"><span class="icon-location2"></span>{{entidad.name}}</a></li>
           </ul>
         </nav>
       </header>
       <!-- Final de Menú-->
       <section>
-        <div class="left"> 
-          <div class="swiper-container main-slider loading">
-            <div class="swiper-wrapper"></div>
-            <!-- -----------Copiar Desde aqui---------------------------->
-            <div class="swiper-slide">
-              <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"></figure><img class="entity-img" src="images/casa_1.jpg">
-              <div class="content"></div>
-              <p class="title"></p><span class="caption"></span>
-            </div>
-            <!-- ----------------hasta aqui para una casa----------------------->
-            <!-- -- Casas agregadas el 24 de Enero de 2020 (total 18 casas)-->
-            <!-- If we need navigation buttons-->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-        </div>
+        <div class="left"> </div>
         <div class="right"> 
-          <!-- Miniaturas de la derecha-->
-          <div class="swiper-container nav-slider loading"></div>
-          <div class="swiper-wrapper" role="navigation">
-            <!-- ---------------------------------------------->
-            <div class="swiper-slide"></div>
-            <figure class="slide-bgimg" style="background-image:url(images/casa_1.jpg)"><img class="entity-img" src="images/casa_1.jpg"></figure>
-            <div class="content">
-              <p class="slide-bgimg">Calvillo, Aguascalientes.</p>
-            </div>
-            <footer></footer>
-          </div>
+          <b-carousel>
+            <b-carousel-item v-for="(slide_i, i) in current_entidad.slides" :key="i">
+              <section :class="">
+                <div class="hero-body has-text-centered">
+                  <figure class="slide-bgimg" :style="getBg(slide_i.bg)"><img class="entity-img" :src="slide_i.img"></figure>
+                </div>
+              </section>
+            </b-carousel-item>
+          </b-carousel>
         </div>
       </section>
+      <footer></footer>
     </div>
     <!-- Comentar antes de enviar a producción-->
     <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js" defer></script>
-    <script src="./js/script.js" defer></script>
     <script src="./js/app-dist.js" defer></script>
+    <script src="./js/script.js" defer></script>
   </body>
 </html>

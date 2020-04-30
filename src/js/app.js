@@ -65,28 +65,44 @@ const app = new Vue({
         name: "Chiapas",
         slides: [
           {
-            bg: "./images/casa_4_1.jpg",
-            img: "./images/casa_4_1.jpg",
-            title: "",
-            caption: "",
+            bg: "./images/casa_5_1.jpg",
+            img: "./images/casa_5_1.jpg",
+            title: "ii",
+            caption: "oo",
           },
           {
-            bg: "./images/casa_4_2.jpg",
-            img: "./images/casa_4_2.jpg",
+            bg: "./images/casa_5_2.jpg",
+            img: "./images/casa_5_2.jpg",
             title: "",
             caption: "",
           },
         ],
       },
     ],
+    current_entidad: {},
+    curr_entidad_bg: ""
   },
   beforemount: function () {},
   mounted: function () {
     //alert("Ready");
+    this.loadEntidad(this.entidades[1])
+  },
+
+  watch: {
+    current_entidad: function(val){
+        console.log(val.slides[0].bg)
+        console.log("FFF")
+        this.curr_entidad_bg = `background-image:url(${val.slides[0].bg})`
+    }
   },
   methods: {
       loadEntidad: function(entidad) {
           console.log(entidad)
+          this.current_entidad = entidad;
+          
+      },
+      getBg(slide) {
+        return `background-image:url(${slide})`
       }
   },
 });

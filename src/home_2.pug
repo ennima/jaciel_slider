@@ -11,6 +11,7 @@ html(lang="es")
     title Banjercito | Bienes inmuebles
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css')
+    link(rel="stylesheet", href="https://unpkg.com/buefy/dist/buefy.min.css")
     link(rel='stylesheet' href='css/style.css')
     link(rel='stylesheet' href='css/fonts.css')
     link(rel='stylesheet' href='css/app.css')
@@ -31,7 +32,7 @@ html(lang="es")
                             | Inicio
                             
                     li(v-for="entidad in entidades")
-                        a(href='#', @click="loadEntidad(3)")
+                        a(href='#', @click="loadEntidad(entidad)")
                             span.icon-location2
                             | {{entidad.name}}
                 
@@ -39,41 +40,46 @@ html(lang="es")
         section
             //- Aquí va todo el contenido
             .left 
-                .swiper-container.main-slider.loading
-                    .swiper-wrapper
-                    // -----------Copiar Desde aqui--------------------------
-                    .swiper-slide
-                        figure.slide-bgimg(style='background-image:url(images/casa_1.jpg)')
-                        img.entity-img(src='images/casa_1.jpg')
-                        .content
-                        p.title
-                        span.caption
-
-
-                    // ----------------hasta aqui para una casa---------------------
-                    // -- Casas agregadas el 24 de Enero de 2020 (total 18 casas)
-                    // If we need navigation buttons
-                    .swiper-button-prev
-                    .swiper-button-next
-
+                //-
+                    .swiper-container
+                        // Additional required wrapper
+                        .swiper-wrapper
+                            // Slides
+                            .swiper-slide(v-for="slide in current_entidad.slides") 
+                                figure.slide-bgimg(:style='getBg(slide)')
+                                    img.entity-img(src='images/casa_1.jpg')
+                        // If we need pagination
+                        .swiper-pagination
+                        // If we need navigation buttons
+                        .swiper-button-prev
+                        .swiper-button-next
+                        // If we need scrollbar
+                        .swiper-scrollbar
             .right 
-                // Miniaturas de la derecha
-                .swiper-container.nav-slider.loading
-                .swiper-wrapper(role='navigation')
-                    // --------------------------------------------
-                    .swiper-slide
-                    figure.slide-bgimg(style='background-image:url(images/casa_1.jpg)')
-                        img.entity-img(src='images/casa_1.jpg')
-                    .content
-                        p.slide-bgimg Calvillo, Aguascalientes.
-                    footer
-                        //- Aquí va el contenido del footer
+                //-
+                    // Miniaturas de la derecha
+                    .swiper-container.nav-slider.loading
+                    .swiper-wrapper(role='navigation')
+                        // --------------------------------------------
+                        .swiper-slide
+                        figure.slide-bgimg(style='background-image:url(images/casa_1.jpg)')
+                            img.entity-img(src='images/casa_1.jpg')
+                        .content
+                            p.slide-bgimg Calvillo, Aguascalientes.
+                b-carousel
+                    b-carousel-item(v-for='(slide_i, i) in current_entidad.slides', :key='i')
+                        section(:class='')
+                            .hero-body.has-text-centered
+                                figure.slide-bgimg(:style='getBg(slide_i.bg)')
+                                    img.entity-img(:src='slide_i.img')
+        footer
+            //- Aquí va el contenido del footer
     //- Descomentar antes de enviar a producción.
     //- script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js")
         
     // Comentar antes de enviar a producción
     script(src='https://vuejs.org/js/vue.js', defer)
-    
+    script(src="https://unpkg.com/buefy/dist/buefy.min.js", defer)
     script(src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js', defer)
-    script(src='./js/script.js', defer)
     script(src="./js/app-dist.js", defer)
+    script(src='./js/script.js', defer)
