@@ -14,7 +14,7 @@
       <header>
         <b-navbar>
           <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }"><img src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png" alt="Lightweight UI components for Vue.js based on Bulma"/></b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/' }"><img src="./images/ico/favicon.png" alt="Lightweight UI components for Vue.js based on Bulma"/></b-navbar-item>
           </template>
           <template slot="start">
             <b-navbar-dropdown v-for="(region, i) in country" :label="region.nombre" :key="i">
@@ -24,10 +24,10 @@
         </b-navbar>
       </header>
       <section class="slider-casas">
-        <b-carousel>
+        <b-carousel indicator-style="is-boxes" :autoplay="false" icon-size="is-large" :arrow="true" :arrow-hover="true" :has-drag="true">
           <b-carousel-item v-for="(casa, i) in current_state.coleccion_casas" :key="i">
-            <section :class="`hero is-medium`">
-              <div class="hero-body has-text-centered"><img :src="casa.img" :alt="casa.title"/></div>
+            <section class="hero is-fullheight-with-navbar">
+              <div class="hero-body"><img :src="casa.img" :alt="casa.title" width="540px"/></div>
             </section>
           </b-carousel-item>
         </b-carousel>

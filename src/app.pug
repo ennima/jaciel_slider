@@ -14,7 +14,7 @@ html(lang="en")
                 b-navbar
                     template(slot="brand")
                         b-navbar-item(tag="router-link", :to="{ path: '/' }")
-                            img(src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png",
+                            img(src="./images/ico/favicon.png",
                                 alt="Lightweight UI components for Vue.js based on Bulma")
 
                     template(slot="start")
@@ -23,12 +23,20 @@ html(lang="en")
 
             section(class="slider-casas")
                 //-
-                b-carousel
+                b-carousel(
+                    indicator-style="is-boxes",
+                    :autoplay="false",
+                    icon-size="is-large",
+                    :arrow="true",
+                    :arrow-hover="true",
+                    :has-drag="true")
                     b-carousel-item(v-for="(casa, i) in current_state.coleccion_casas", :key="i")
-                        section(:class="`hero is-medium`")
-                            div(class="hero-body has-text-centered")
-                                img(:src="casa.img", :alt="casa.title")
-
+                        section(class="hero is-fullheight-with-navbar")
+                            div(class="hero-body")
+                                //-
+                                
+                                img(:src="casa.img", :alt="casa.title", width="540px")
+            
             script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js", defer)
             script(src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js", defer)
             script(src="./js/entidades-dist.js", defer)
