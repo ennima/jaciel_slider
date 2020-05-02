@@ -1,1 +1,23 @@
-"use strict";var app=new Vue({el:"#app",data:{entidades:[{name:"Aguascalientes",slides:[{bg:"./images/casa_1.jpg",img:"./images/casa_1.jpg",title:"",caption:""}]},{name:"Baja California",slides:[{bg:"./images/casa_2_1.jpg",img:"./images/casa_2_1.jpg",title:"",caption:""},{bg:"./images/casa_2_2.jpg",img:"./images/casa_2_2.jpg",title:"",caption:""}]},{name:"Baja California Sur",slides:[{bg:"./images/casa_3_1.jpg",img:"./images/casa_3_1.jpg",title:"",caption:""},{bg:"./images/casa_3_2.jpg",img:"./images/casa_3_2.jpg",title:"",caption:""}]},{name:"Chiapas",slides:[{bg:"./images/casa_5_1.jpg",img:"./images/casa_5_1.jpg",title:"ii",caption:"oo"},{bg:"./images/casa_5_2.jpg",img:"./images/casa_5_2.jpg",title:"",caption:""}]}],current_entidad:{},curr_entidad_bg:""},beforemount:function(){},mounted:function(){this.loadEntidad(this.entidades[1])},watch:{current_entidad:function(a){console.log(a.slides[0].bg),console.log("FFF"),this.curr_entidad_bg="background-image:url("+a.slides[0].bg+")"}},methods:{loadEntidad:function(a){console.log(a),this.current_entidad=a},getBg:function(a){return"background-image:url("+a+")"}}});
+"use strict";
+const app = new Vue({
+  el: "#app",
+  data: {
+    country: [],
+    current_state: {},
+    carousel: 0
+  },
+  mounted: async function () {
+    this.country = await getData();
+    let region_0 = this.country[0];
+    this.current_state = region_0.estados[0];
+  },
+  methods: {
+      loadState: function(entidad){
+        this.carousel = 0;
+        this.current_state = entidad;
+      }
+  }
+});
+
+
+

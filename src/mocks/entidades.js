@@ -92,6 +92,43 @@ function getData() {
             },
           ],
         },
+        {
+          nombre: "Chiapas",
+          icono: "",
+          coleccion_casas: [
+            {
+              img: "./images/casa_26_1.jpg",
+              title: "ii",
+              caption: "oo",
+            },
+            {
+              img: "./images/casa_26_2.jpg",
+              title: "",
+              caption: "",
+            },
+          ],
+        },
+        {
+          nombre: "Veracruz",
+          icono: "",
+          coleccion_casas: [
+            {
+              img: "./images/casa_25_1.jpg",
+              title: "ii",
+              caption: "oo",
+            },
+            {
+              img: "./images/casa_25_2.jpg",
+              title: "",
+              caption: "",
+            },
+            {
+              img: "./images/casa_25_3.jpg",
+              title: "",
+              caption: "",
+            },
+          ],
+        },
       ],
     },
   ];

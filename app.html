@@ -24,7 +24,7 @@
         </b-navbar>
       </header>
       <section class="slider-casas">
-        <b-carousel indicator-style="is-boxes" :autoplay="false" icon-size="is-large" :arrow="true" :arrow-hover="true" :has-drag="true">
+        <b-carousel v-model="carousel" indicator-style="is-boxes" :autoplay="false" icon-size="is-large" :arrow="true" :arrow-hover="true" :has-drag="true" ref="nameOfRef">
           <b-carousel-item v-for="(casa, i) in current_state.coleccion_casas" :key="i">
             <section class="hero is-fullheight-with-navbar">
               <div class="hero-body"><img :src="casa.img" :alt="casa.title" width="540px"/></div>
@@ -35,7 +35,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js" defer="defer"></script>
       <script src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js" defer="defer"></script>
       <script src="./js/entidades-dist.js" defer="defer"></script>
-      <script src="./js/app2-dist.js" defer="defer"></script>
+      <script src="./js/app-dist.js" defer="defer"></script>
     </div>
   </body>
 </html>

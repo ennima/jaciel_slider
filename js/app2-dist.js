@@ -3,7 +3,8 @@ const app = new Vue({
   el: "#app",
   data: {
     country: [],
-    current_state: {}
+    current_state: {},
+    carousel: 0
   },
   mounted: async function () {
     this.country = await getData();
@@ -12,8 +13,8 @@ const app = new Vue({
   },
   methods: {
       loadState: function(entidad){
-          console.warn(entidad);
-          this.current_state = entidad;
+        this.carousel = 0;
+        this.current_state = entidad;
       }
   }
 });
