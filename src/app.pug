@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Casas
+        link(rel="stylesheet" href="https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
+        link(rel="stylesheet" href="https://unpkg.com/buefy@0.8.17/dist/buefy.min.css")
+    body
+        #app
+            header
+                b-navbar
+                    template(slot="brand")
+                        b-navbar-item(tag="router-link", :to="{ path: '/' }")
+                            img(src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png",
+                                alt="Lightweight UI components for Vue.js based on Bulma")
+
+                    template(slot="start")
+                        b-navbar-dropdown(v-for="region in country", :label="region.nombre")
+                            b-navbar-item(v-for="entidad in region.estados", @click="loadState(entidad)") {{entidad.nombre}}
+
+            section(class="slider-casas")
+
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js", defer)
+            script(src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js", defer)
+            script(src="./js/entidades-dist.js", defer)
+            script(src="./js/app2-dist.js", defer)
+
