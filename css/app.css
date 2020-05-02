@@ -1,0 +1,30 @@
+.navbar {
+  background-color: #024959;
+}
+
+.navbar .navbar-burger {
+  color: #FFF;
+}
+
+.navbar .navbar-link {
+  color: #FFF;
+}
+
+.navbar .navbar-item.has-dropdown.is-active .navbar-link,
+.navbar .navbar-item.has-dropdown:focus .navbar-link,
+.navbar .navbar-item.has-dropdown:hover .navbar-link {
+  background-color: #013540;
+}
+
+.navbar .navbar-link:not(.is-arrowless)::after {
+  border-color: #fbfbfb;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #cbdad4;
+}
