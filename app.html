@@ -16,13 +16,21 @@
             <b-navbar-item tag="router-link" :to="{ path: '/' }"><img src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png" alt="Lightweight UI components for Vue.js based on Bulma"/></b-navbar-item>
           </template>
           <template slot="start">
-            <b-navbar-dropdown v-for="region in country" :label="region.nombre">
-              <b-navbar-item v-for="entidad in region.estados" @click="loadState(entidad)">{{entidad.nombre}}</b-navbar-item>
+            <b-navbar-dropdown v-for="(region, i) in country" :label="region.nombre" :key="i">
+              <b-navbar-item v-for="(entidad, j) in region.estados" @click="loadState(entidad)" :key="j">{{entidad.nombre}}</b-navbar-item>
             </b-navbar-dropdown>
           </template>
         </b-navbar>
       </header>
-      <section class="slider-casas"></section>
+      <section class="slider-casas">
+        <b-carousel>
+          <b-carousel-item v-for="(casa, i) in current_state.coleccion_casas" :key="i">
+            <section :class="`hero is-medium`">
+              <div class="hero-body has-text-centered"><img :src="casa.img" :alt="casa.title"/></div>
+            </section>
+          </b-carousel-item>
+        </b-carousel>
+      </section>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js" defer="defer"></script>
       <script src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js" defer="defer"></script>
       <script src="./js/entidades-dist.js" defer="defer"></script>

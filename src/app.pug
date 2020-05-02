@@ -17,10 +17,16 @@ html(lang="en")
                                 alt="Lightweight UI components for Vue.js based on Bulma")
 
                     template(slot="start")
-                        b-navbar-dropdown(v-for="region in country", :label="region.nombre")
-                            b-navbar-item(v-for="entidad in region.estados", @click="loadState(entidad)") {{entidad.nombre}}
+                        b-navbar-dropdown(v-for="(region, i) in country", :label="region.nombre", :key="i")
+                            b-navbar-item(v-for="(entidad, j) in region.estados", @click="loadState(entidad)", :key="j" ) {{entidad.nombre}}
 
             section(class="slider-casas")
+                //-
+                b-carousel
+                    b-carousel-item(v-for="(casa, i) in current_state.coleccion_casas", :key="i")
+                        section(:class="`hero is-medium`")
+                            div(class="hero-body has-text-centered")
+                                img(:src="casa.img", :alt="casa.title")
 
             script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js", defer)
             script(src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js", defer)
