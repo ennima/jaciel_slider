@@ -48,6 +48,11 @@ function getData() {
               title: "",
               caption: "",
             },
+            {
+              img: "./images/casa_5_3.jpg",
+              title: "",
+              caption: "",
+            },
           ],
         },
       ],

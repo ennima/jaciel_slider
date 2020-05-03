@@ -1,0 +1,85 @@
+.navbar {
+  background-color: $nav-color;
+  .navbar-brand {
+    //border: 6px solid aqua;
+    //background-color: azure;
+  }
+  .navbar-burger {
+    color: $clickable-color;
+  }
+
+  .navbar-item {
+  }
+
+  .navbar-link {
+    color: lighten($nav-color,60%);
+  }
+
+  .navbar-item.has-dropdown.is-active .navbar-link,
+  .navbar-item.has-dropdown:focus .navbar-link,
+  .navbar-item.has-dropdown:hover .navbar-link {
+    background-color: darken($nav-color, 5%);
+  }
+
+  .navbar-link:not(.is-arrowless)::after {
+    border-color: #fbfbfb;
+  }
+}
+
+.navbar-link.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+a.navbar-item.is-active,
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover {
+  background-color: $nav-color;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-start {
+    //border: 1px solid red;
+    justify-content: space-evenly;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.carousel {
+  .carousel-items {
+    .carousel-item {
+      .hero {
+        .hero-body {
+          margin: 0px;
+          padding: 0px;
+          min-width: 100vw;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .indicator-item.is-active .indicator-style,
+  .indicator-item .indicator-style:hover {
+    background: $nav-color !important;
+    border: 1px solid $clickable-color !important;
+  }
+  .indicator-item .indicator-style {
+    background: $clickable-color !important;
+    border: 1px solid $nav-color !important;
+  }
+
+  .carousel-arrow .icon {
+    background: #fff;
+    color: $nav-color;
+    cursor: pointer;
+    border: 1px solid $clickable-color;
+    border-radius: 290486px;
+    outline: 0;
+  }
+}
