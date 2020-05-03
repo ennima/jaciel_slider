@@ -15,7 +15,7 @@ html(lang="es")
                     template(slot="brand")
                         b-navbar-item(tag="router-link", :to="{ path: '/' }")
                             img(src="./images/ico/favicon.png",
-                                alt="Lightweight UI components for Vue.js based on Bulma")
+                                alt="Logo Bajercito")
 
                     template(slot="start")
                         b-navbar-dropdown(v-for="(region, i) in country", :label="region.nombre", :key="i")
@@ -39,7 +39,10 @@ html(lang="es")
                                 
                                 img(:src="casa.img", :alt="casa.title", width="540px")
             
+
+        //- Usar en modo desarrollo
         script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js", defer)
+        //-script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js", defer)
         script(src="https://unpkg.com/buefy@0.8.17/dist/buefy.min.js", defer)
         script(src="./js/entidades-dist.js", defer)
         script(src="./js/app-dist.js", defer)

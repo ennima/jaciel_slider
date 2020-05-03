@@ -13,8 +13,12 @@ const app = new Vue({
   },
   methods: {
       loadState: function(entidad){
-        this.carousel = 0;
+        this.carousel = 1;
         this.current_state = entidad;
+        //this.carousel = 0;
+        setTimeout(()=>{
+          this.carousel = 0;
+        },100);
       }
   }
 });
